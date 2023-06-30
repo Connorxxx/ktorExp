@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.models.database.DatabaseFactory
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
@@ -26,6 +27,7 @@ fun NettyApplicationEngine.Configuration.configure() {
 }
 
 fun Application.module() {
+    DatabaseFactory.init()
     configureSerialization()
     configureRouting()
 }
